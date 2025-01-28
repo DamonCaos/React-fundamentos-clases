@@ -1,0 +1,8 @@
+.tweets-page{
+    color: red;
+    contain: content;
+    
+}
+ .tweets-page.green{
+    color: green;
+}

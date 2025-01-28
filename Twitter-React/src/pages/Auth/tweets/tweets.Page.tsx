@@ -1,3 +1,5 @@
+import "./TweetsPage.css"
+import clsx from "clsx";
 
 const tweets = [
     {
@@ -15,16 +17,17 @@ const tweets = [
       id: 2,
     },
   ];
-
+const green = true;
 function TweetsPage() {
-    return <div>
-        <h1>Tweets Page</h1>
-        <ul>
+    return ( 
+    <div className={clsx("tweets-page", { green })}>
+        <h1 className="text-blue-600">Tweets Page</h1>
+        <ul className="flex">
             {tweets.map((tweet) =>(
                 <li key={tweet.id}>{tweet.content}</li>
             ))}
         </ul>
         </div>
-}
+)}
 
 export default TweetsPage;
