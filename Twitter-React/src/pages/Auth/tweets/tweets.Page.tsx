@@ -6,6 +6,11 @@ import { useEffect, useState } from "react";
 import { Tweet } from "../tweets/types";
 
 const green = true;
+
+interface Props {
+    onLogout: () => void;
+}
+
 function TweetsPage() {
 
     const [tweets, setTweets] = useState<Tweet[]>([]);
@@ -15,6 +20,13 @@ function TweetsPage() {
         });
     }, []);
    
+
+    const habdleLogoutClick = async () => {
+        await logout();
+        onLogout();
+    }
+
+
     return ( 
     <div className={clsx("tweets-page", { green })}>
         <h1 className="text-blue-600">Tweets Page</h1>

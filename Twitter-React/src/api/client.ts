@@ -9,3 +9,7 @@ export const client = axios.create({
 export const setAuthorizationHeader = (accessToken: string) => {
     client.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
 }
+
+export const removeAuthorizationHeader = () => {
+    delete client.defaults.headers.common['Authorization'];
+};

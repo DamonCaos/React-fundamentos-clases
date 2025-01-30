@@ -4,6 +4,7 @@ import { useState } from "react";
 import React from "react"; 
 interface Props {
     onLogin: () => void;
+    onLogout: () => void;
 }
 
 function LoginPage(props: Props) {
