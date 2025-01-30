@@ -1,5 +1,21 @@
 {
-  "dependencies": {
-    "clsx": "^2.1.1"
-  }
+  "name": "twitter-react",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamonCaos/React-fundamentos-clases.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamonCaos/React-fundamentos-clases/issues"
+  },
+  "homepage": "https://github.com/DamonCaos/React-fundamentos-clases#readme",
+  "description": ""
 }
