@@ -1,17 +1,21 @@
 import Button from "../../components/button";
 import { login } from "./service";
-
+import { useState } from "react";
+import React from "react"; 
 interface Props {
     onLogin: () => void;
 }
 
 function LoginPage(props: Props) {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    //const [isdisabled, setIsDisabled] = useState(true);
     const habdleSubmit = async(event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
             const response = await login({
-                username: event.target.username.value,
-                password: event.target.password.value
+                username: username,
+                password: password
             })  
             console.log(response)
             props.onLogin();
@@ -21,6 +25,18 @@ function LoginPage(props: Props) {
         
         
     }
+
+    const handleUsernameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target.value)
+        setUsername(event.target.value)
+    }
+    const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        console.log(event.target.value)
+        setPassword(event.target.value)
+    }
+
+    const isDisabled = !username || !password;
+
     return (
         <div>
             <h1>Log in Now!</h1>
@@ -28,13 +44,16 @@ function LoginPage(props: Props) {
         <label className="block">
             <label className="block">
                 Username:
-                <input type="text" name="username" />
+                <input type="text"
+                 name="username" 
+                 value={username} 
+                 onChange={handleUsernameChange}/>
             </label>
             <label>
                 Password:
-                <input type="password" name="password" />
+                <input type="password" name="password" value={password} onChange={handlePasswordChange} />
             </label>
-            <Button type="submit" $variant="primary">Submit</Button>
+            <Button type="submit" variant="primary" disabled={isDisabled}>Log in</Button>
         </label>
         
         </form>
